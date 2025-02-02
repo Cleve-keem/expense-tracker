@@ -35,7 +35,49 @@ function AddBudget() {
               <p className=" text-xl font-bold">Create New Budget</p>
             </DialogTitle>
 
-            
+            <DialogDescription></DialogDescription>
+            <div>
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-lg"
+                onClick={toggleOpenEmoji}
+              >
+                {emoji}
+              </Button>
+              <div className=" my-3 absolute bg-white">
+                <EmojiPicker
+                  open={openEmoji}
+                  onEmojiClick={(e) => {
+                    setEmoji(e.emoji);
+                    setOpenEmoji(false);
+                  }}
+                />
+              </div>
+              <div>
+                <p className=" font-semibold text-black my-2">Budget Name</p>
+                <Input
+                  placeholder="e.g Foodstuff"
+                  onChange={(e) => setBudgetName(e.target.value)}
+                />
+              </div>
+              <div>
+                <p className=" font-semibold text-black my-2">Budget Amount</p>
+                <Input
+                  type="number"
+                  placeholder="e.g 5000"
+                  onChange={(e) => setBudgetAmount(e.target.value)}
+                />
+              </div>
+              <Button
+                disabled={!(budgetName && budgetAmount)}
+                className="mt-3 w-full"
+                variant="custom"
+              >
+                Create Budget
+              </Button>
+            </div>
+          </DialogHeader>
         </DialogContent>
       </Dialog>
     </div>
