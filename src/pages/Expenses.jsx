@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import Sidebar from "../components/Sidebar";
 
 export default function Expenses() {
   return (
-    <div>Expenses</div>
-  )
+    <div>
+      <Sidebar />
+      <h1>Expenses</h1>
+    </div>
+  );
 }
